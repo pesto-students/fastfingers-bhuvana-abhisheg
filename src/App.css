@@ -8,7 +8,9 @@
   box-sizing: border-box;
 }
 body {
-  min-height: 100vh;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
   background-image: url(./assets/images/backgroundImage.svg), linear-gradient(to top, #063C47, #000000);
   background-blend-mode: multiply;
   background-position: center;

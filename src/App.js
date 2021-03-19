@@ -6,7 +6,7 @@ import GameScreen from './components/gameScreen/GameScreen';
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <Route path="/">
         <Login />
       </Route>

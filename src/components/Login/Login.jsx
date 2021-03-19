@@ -10,7 +10,7 @@ export default function Login(){
     const [showValidationError, setShowValidationError] = useState(false);
 
     const showGameScreen = (event) => {
-        if(username.length == 0)
+        if(username.length === 0)
             setShowValidationError(true);
         if(showValidationError)
             return;

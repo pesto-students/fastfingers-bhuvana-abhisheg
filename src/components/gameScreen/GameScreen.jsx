@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {getDataFromLocalStorage} from '../../common/utils';
 import UserLogo from '../../assets/images/person.svg';
 import GamepadLogo from '../../assets/images/gamepad.svg';
@@ -17,6 +17,7 @@ export default function GameScreen(props){
             return response.json();
         }).then(response => {
             const data = response;
+            console.log('data..',data);
         });
     }, []);
     return(

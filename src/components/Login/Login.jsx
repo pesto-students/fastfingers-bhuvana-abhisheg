@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import KeyboardLogo from '../../assets/images/keyboard.svg';
 import PlayLogo from '../../assets/images/play.svg';
 import {saveDataToLocalStorage} from '../../common/utils';
@@ -8,18 +8,32 @@ export default function Login(){
     const [username, setUsername] = useState("");
     const [difficultylevel, setDifficultylevel] = useState('1');
     const [showValidationError, setShowValidationError] = useState(false);
+    const usernameRef = React.createRef();
 
     const showGameScreen = (event) => {
         event.preventDefault();
-        if(username.length === 0)
-            setShowValidationError(true);
-        if(showValidationError)
+        setShowValidationError(username.trim() === "");
+        if(username.trim() === ""){
             return;
-        saveDataToLocalStorage('username',username);
-        saveDataToLocalStorage('difficultylevel',difficultylevel);        
-        window.history.pushState({}, "", '/game-screen');
-        const navEvent = new PopStateEvent('popstate');
-        window.dispatchEvent(navEvent);
+        } else {
+            saveDataToLocalStorage('username',username);
+            saveDataToLocalStorage('difficultylevel',difficultylevel);        
+            window.history.pushState({}, "", '/game-screen');
+            const navEvent = new PopStateEvent('popstate');
+            window.dispatchEvent(navEvent);
+        }
+    }
+
+    useEffect(() => {
+        if (usernameRef.current) {
+            usernameRef.current.focus();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
+    const handleUserNameChange = (event) => {
+        setShowValidationError(false);
+        setUsername(event.target.value);
     }
 
     return(
@@ -34,15 +48,16 @@ export default function Login(){
                 <span className="line2"></span>
             </div>
             <form id="form" onSubmit={showGameScreen}>
-                <div className="row justify-content-center mb-3 mt-3">
+                <div className="row justify-content-center mt-3">
                     <input type="text"
                             aria-label="Type Username" 
                             placeholder="TYPE YOUR NAME" 
                             name="uname" value={username}
-                            onChange={e => setUsername(e.target.value)}
-                            required />
-                    { showValidationError ? <span className="validation-error">Please enter username</span> : ''}
+                            onChange={handleUserNameChange}
+                            ref={usernameRef}
+                            required />                   
                 </div>
+                { showValidationError ? <div className="error-message">Please enter username</div> : ''}
                 <div className="row justify-content-center mb-3 mt-3">
                     <select aria-label="Select difficulty level in the game"
                         onChange={e => setDifficultylevel(e.target.value)}

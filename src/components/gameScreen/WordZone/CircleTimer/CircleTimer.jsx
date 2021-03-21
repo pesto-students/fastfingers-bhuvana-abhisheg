@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProtoTypes from "prop-types";
 import "./CircleTimer.scss";
-import { formatTime } from "./Utils";
+import { formatTime, calculateTimeFraction } from "./Utils";
 const FULL_DASH_ARRAY = 283;
 let timePassed = 0;
 let timeout = '';
@@ -19,22 +19,22 @@ export default function CircleTimer({maxTime, handleEndGame}) {
         timeout = setInterval(() => {
             if (timeLeft > 0) {
                 //update timer
-                timePassed = timePassed += 1;
+                timePassed += 100;
                 setTimeLeft(maxTime - timePassed);
-
                 //update stroke
-                const strokeValue = calculateTimeFraction(timeLeft, maxTime) * FULL_DASH_ARRAY;
-                setStroke(`${strokeValue} 283`);
+                const strokeValue = calculateTimeFraction(timeLeft, maxTime);
+                setStroke(`${strokeValue} ${FULL_DASH_ARRAY}`);
             }
-            else if(timeLeft == 0) {
+            else if(timeLeft === 0) {
                 handleEndGame();
                 clearInterval(timeout);
             }
-        }, 1000);
+        }, 100);
 
         return () => {
             clearInterval(timeout);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [timeLeft]);
 
     return (
@@ -56,7 +56,7 @@ export default function CircleTimer({maxTime, handleEndGame}) {
                 </g>
             </svg>
             {
-                timeLeft != -1 ? 
+                timeLeft !== -1 ? 
                 <span className="base-timer__label">{formatTime(timeLeft)}</span>
                 : ''
             }
@@ -67,8 +67,4 @@ export default function CircleTimer({maxTime, handleEndGame}) {
 CircleTimer.protoTypes = {
     maxTime: ProtoTypes.number.isRequired,
     handleEndGame: ProtoTypes.func.isRequired
-}
-
-function calculateTimeFraction(timeLeft, maxTime) {
-    return timeLeft / maxTime;
 }

@@ -3,37 +3,88 @@ import Header from './Header/Header';
 import ScoreBoard from './ScoreBoard/ScoreBoard';
 import './GameScreen.scss';
 import WordZone from './WordZone/WordZone';
+import { formatTime } from '../../components/gameScreen/WordZone/CircleTimer/Utils';
+import PlayLogo from '../../assets/images/play-again.svg';
+import StopLogo from '../../assets/images/stop.svg';
 
 export default function GameScreen(){
     const [gameScores, setGameScores] = useState([]);
     const [score, setScore] = useState(0);
     const [gameNumber, setGameNumber] = useState(1);
-    const [showWordZone, setShowWordZone] = useState(false);
+    const [showWordZone, setShowWordZone] = useState(true);
 
     const handleEndGame = () => {
         if(gameScores.length > 6) {
             gameScores.shift();
         }
-        setGameScores([...gameScores, { gameNumber, score }]);
+        setGameScores([...gameScores, { gameNumber, score: (score * 1000) }]);
         setGameNumber(gameNumber + 1);
         setShowWordZone(false);
-    }    
+    }
+
+    const handlePlayAgain = () => {
+        setShowWordZone(true);
+    }
+
+    const hanldeQuitGame = () => {
+        localStorage.clear();
+        window.history.pushState({}, "", '/');
+        const navEvent = new PopStateEvent('popstate');
+        window.dispatchEvent(navEvent);
+    }
+
+    const handleScoreChange = (currentScore) => {
+        setScore(currentScore);
+    }
 
     return(
         <div>
-            <Header />
+            <Header showWordZone={showWordZone} onScoreChange={handleScoreChange}/>
             {
                 showWordZone ?
                     <div className="row">
                         <div className="col-lg-2 score-board mt-5">
-                            {/*<ScoreBoard gameScores={gameScores}/>*/}
+                            <ScoreBoard gameScores={gameScores}/>
                         </div>
-                        <div className="col-lg-10 mt-5">
+                        <div className="col-lg-8 mt-5">
                             <WordZone handleEndGame={handleEndGame}/>
                         </div>
                     </div>
                     :
-                    <div className="row">
+                    <div className="row justify-content-center align-items-center">
+                        <div className="mt-5">
+                            <div className="text-white p-0 m-0 pt-5 score-heading">
+                                SCORE : GAME {gameNumber - 1}
+                            </div>
+                            <div className="text-white p-0 m-0 game-score">
+                                { formatTime(score * 1000, "ss:mm") }
+                            </div>
+                            {
+                                Math.max(...gameScores.map(({ score }) => { return score })) < score ?
+                                    <p className="text-white p-0 m-0 high-score">New High Score</p>
+                                    : ''
+                            }
+                            <div className="play-again mt-4" onClick={handlePlayAgain}>
+                                <div className="row">
+                                    <img src={PlayLogo} alt="Play Again"/>
+                                    <span>PLAY AGAIN</span>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+            }
+            {
+                showWordZone ?
+                    <div className="row px-5 footer">
+                        <div className="stop-game" onClick={handleEndGame}>
+                            <img src={StopLogo} alt="Stop Game"/>
+                            <span>STOP GAME</span>
+                        </div>
+                    </div> :
+                    <div className="row px-5 footer">
+                        <p className="stop-game">
+                            <span onClick={hanldeQuitGame}>QUIT</span>
+                        </p>
                     </div>
             }
         </div>   

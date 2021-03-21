@@ -17,3 +17,27 @@
 .game-word {
   border: none;
 }
+.score-heading {
+  font-size: 25px;
+}
+.game-score {
+  font-size: 35px;
+  font-weight: 500;
+}
+.play-again {
+  color: #ff5155;
+  font-size: 16px;
+  cursor: pointer;
+}
+.high-score {
+  font-size: 17px;
+}
+.stop-game {
+  color: #ff5155;
+  font-size: 20px;
+  cursor: pointer;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+}

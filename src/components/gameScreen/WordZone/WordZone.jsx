@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './WordZone.scss';
 import CircleTimer from './CircleTimer/CircleTimer';
-import ProtoTypes from "prop-types";
+import RandomWord from './RandomWord/RandomWord';
 import { getRandomWord } from './Utils';
 import {getDataFromLocalStorage} from '../../../common/utils';
+import ProtoTypes from "prop-types";
+import './WordZone.scss';
 
 export default function WordZone({ handleEndGame }){
     const [difficultyLevel, setDifficultyLevel] = useState(Number(getDataFromLocalStorage('difficultylevel')));
     const [randomWord, setRandomWord] = useState('');    
     const [maxTime, setMaxTime] = useState(-1);
     const [inputWord, setInputWord] = useState('');
+    const inputWordRef = React.createRef();
 
     const handleInputWordChange = (e) => {
         setInputWord(e.target.value);
@@ -22,20 +24,24 @@ export default function WordZone({ handleEndGame }){
 
     const setTargetWord = () => {
         const randomWord = getRandomWord(difficultyLevel);
-        const maxTime = Math.ceil(randomWord.length / difficultyLevel);
+        const maxTime = Math.ceil(randomWord.length / difficultyLevel) * 1000;
         setRandomWord(randomWord);
-        setMaxTime(maxTime);
+        setMaxTime(maxTime > 2000 ? maxTime : 2000);
     }
 
     useEffect(() => {
         setTargetWord();
+        if (inputWordRef.current) {
+            inputWordRef.current.focus();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     return(
         <div className="word-zone">
             <CircleTimer maxTime={maxTime} key={randomWord} handleEndGame={handleEndGame}/>
-            <p className="random-word text-uppercase mt-3">{randomWord}</p>
-            <input type="text" value={inputWord} onChange={handleInputWordChange} />
+            <RandomWord randomWord={randomWord} inputWord={inputWord}/>
+            <input type="text" value={inputWord} onChange={handleInputWordChange} ref={inputWordRef}/>
         </div>
     )
 }

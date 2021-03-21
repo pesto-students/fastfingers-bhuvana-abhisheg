@@ -1,27 +1,26 @@
-/*export const formatTime = (time) => {
-    let seconds = Math.floor(time / 1000);
-    if (seconds < 10) {
-        seconds = `0${seconds}`;
-    }
-    let milliseconds = Math.round((time % 1000) / 10);
-    if (milliseconds < 10) {
-        milliseconds = `0${milliseconds}`;
-    }
-    return `${seconds}:${milliseconds}`;
-}*/
+const FULL_DASH_ARRAY = 283;
 
-export const calculateTimeFraction = (remainingTime, maxTime) => {
-    return remainingTime / maxTime;
+export function calculateTimeFraction(timeLeft, maxTime) {
+  const rawTimeFraction = timeLeft / maxTime;
+  return (rawTimeFraction - (1 / maxTime) * (1 - rawTimeFraction)) * FULL_DASH_ARRAY;
 }
 
-export function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-  
-    let seconds = time % 60;
-  
-    if (seconds < 10) {
-      seconds = `0${seconds}`;
-    }
-  
-    return `${minutes}:${seconds}`;
+export function formatTime(time, format = "ss:ms") {
+  let minutes = Math.floor(time / 1000 / 60);
+  let seconds = Math.floor(time / 1000);
+  let miliseconds = (time % 1000) / 10;  
+  if(seconds % 60 === 0){
+    seconds = 0;
   }
+  if(seconds > 60) {
+    seconds = Math.floor(seconds % 60);
+  }  
+  if (format === "mm:ss") {
+    return `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds
+      }`;
+  }
+  else {
+    return `${seconds < 10 ? `0${seconds}` : seconds}:${miliseconds < 10 ? `0${miliseconds}` : miliseconds
+      }`;
+  }
+}

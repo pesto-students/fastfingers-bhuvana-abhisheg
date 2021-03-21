@@ -6,17 +6,17 @@ import "./Login.scss";
 
 export default function Login(){
     const [username, setUsername] = useState("");
-    const [difficultylevel, setDifficultylevel] = useState("easy");
+    const [difficultylevel, setDifficultylevel] = useState('1');
     const [showValidationError, setShowValidationError] = useState(false);
 
     const showGameScreen = (event) => {
+        event.preventDefault();
         if(username.length === 0)
             setShowValidationError(true);
         if(showValidationError)
             return;
         saveDataToLocalStorage('username',username);
-        saveDataToLocalStorage('difficultylevel',difficultylevel);
-        event.preventDefault();
+        saveDataToLocalStorage('difficultylevel',difficultylevel);        
         window.history.pushState({}, "", '/game-screen');
         const navEvent = new PopStateEvent('popstate');
         window.dispatchEvent(navEvent);
@@ -47,9 +47,9 @@ export default function Login(){
                     <select aria-label="Select difficulty level in the game"
                         onChange={e => setDifficultylevel(e.target.value)}
                         value={difficultylevel}>
-                        <option value="easy">EASY</option>
-                        <option value="medium">MEDIUM</option>
-                        <option value="hard">HARD</option>
+                        <option value="1">EASY</option>
+                        <option value="1.5">MEDIUM</option>
+                        <option value="2">HARD</option>
                     </select>    
                 </div>
                 <div className="start-button" onClick={showGameScreen}>

@@ -56,6 +56,7 @@ input {
   width: 400px;
   min-height: 20px;
   text-transform: uppercase;
+  outline: none;
 }
 select{
   width: 400px;
@@ -71,4 +72,8 @@ select{
   color: #ff5155;
   font-size: 30px;
   cursor: pointer;
+}
+.error-message {
+  color: red;
+  font-size: 15px;
 }

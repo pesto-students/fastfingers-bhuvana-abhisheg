@@ -1,56 +1,43 @@
-.person-img {
-    width: 80px;
-    height: 50px; 
+.score-board {
+  width: 346px;
+  height: 293px;
+  margin: 0.2px 20.7px 3px 41.7px;
+  padding: 32px 16.5px 29.2px 33px;
+  border-radius: 15px;
+  border: solid 3px #ff5155;
 }
-.fast-fingers{
-  font-family: LaserCorpsGradient;
-  font-size: 32px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-align: left;
+.user-input {
+  width: 422px;
+  height: 80px;
+  opacity: 0.59;
+  border-radius: 15px;
+  box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
+  background-color: #ffffff;
+}
+.game-word {
+  border: none;
+}
+.score-heading {
+  font-size: 25px;
+}
+.game-score {
+  font-size: 35px;
+  font-weight: 500;
+}
+.play-again {
   color: #ff5155;
+  font-size: 16px;
+  cursor: pointer;
 }
-.player-name {
-    font-family: Breamcatcher;
-    font-size: 24px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    text-align: left;
-    color: #ff5155;
-  }
-  .score{
-    font-family: Breamcatcher;
-    font-size: 24px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    text-align: left;
-    color: #ff5155;
-  }
-  .score-board {
-    width: 346px;
-    height: 293px;
-    margin: 0.2px 20.7px 3px 41.7px;
-    padding: 32px 16.5px 29.2px 33px;
-    border-radius: 15px;
-    border: solid 3px #ff5155;;
-  }
-  .user-input {
-    width: 422px;
-    height: 80px;
-    opacity: 0.59;
-    border-radius: 15px;
-    box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
-    background-color: #ffffff;
-  }
-  .game-word {
-    border: none;
-  }
+.high-score {
+  font-size: 17px;
+}
+.stop-game {
+  color: #ff5155;
+  font-size: 20px;
+  cursor: pointer;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+}

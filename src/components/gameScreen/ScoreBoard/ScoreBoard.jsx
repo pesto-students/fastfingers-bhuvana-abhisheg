@@ -19,7 +19,7 @@ export default function ScoreBoard({ gameScores }){
     });
     return(
         <div>
-            <div className="text-center score-board-header p-3 text-left">
+            <div className="text-center score-board-header p-3">
                 SCORE BOARD
             </div>
             { content }

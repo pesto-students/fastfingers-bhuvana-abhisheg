@@ -55,6 +55,7 @@ export default function Login(){
                             name="uname" value={username}
                             onChange={handleUserNameChange}
                             ref={usernameRef}
+                            className="username-input"
                             required />                   
                 </div>
                 { showValidationError ? <div className="error-message">Please enter username</div> : ''}

@@ -41,7 +41,7 @@ export default function WordZone({ handleEndGame }){
         <div className="word-zone">
             <CircleTimer maxTime={maxTime} key={randomWord} handleEndGame={handleEndGame}/>
             <RandomWord randomWord={randomWord} inputWord={inputWord}/>
-            <input type="text" value={inputWord} onChange={handleInputWordChange} ref={inputWordRef}/>
+            <input type="text" className="user-input "value={inputWord} onChange={handleInputWordChange} ref={inputWordRef}/>
         </div>
     )
 }

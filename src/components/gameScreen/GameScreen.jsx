@@ -43,7 +43,7 @@ export default function GameScreen(){
             {
                 showWordZone ?
                     <div className="row">
-                        <div className="col-lg-2 score-board mt-5">
+                        <div className="col-lg-2 score-board mt-5 ml-4">
                             <ScoreBoard gameScores={gameScores}/>
                         </div>
                         <div className="col-lg-8 mt-5">
@@ -53,10 +53,10 @@ export default function GameScreen(){
                     :
                     <div className="row justify-content-center align-items-center">
                         <div className="mt-5">
-                            <div className="text-white p-0 m-0 pt-5 score-heading">
+                            <div className="text-white score-heading">
                                 SCORE : GAME {gameNumber - 1}
                             </div>
-                            <div className="text-white p-0 m-0 game-score">
+                            <div className="text-white game-score text-center">
                                 { formatTime(score * 1000, "ss:mm") }
                             </div>
                             {
@@ -64,7 +64,7 @@ export default function GameScreen(){
                                     <p className="text-white p-0 m-0 high-score">New High Score</p>
                                     : ''
                             }
-                            <div className="play-again mt-4" onClick={handlePlayAgain}>
+                            <div className="play-again mt-4 ml-5" onClick={handlePlayAgain}>
                                 <div className="row">
                                     <img src={PlayLogo} alt="Play Again"/>
                                     <span>PLAY AGAIN</span>

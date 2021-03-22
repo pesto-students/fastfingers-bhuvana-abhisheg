@@ -1,40 +1,41 @@
 .score-board {
-  width: 346px;
-  height: 293px;
-  margin: 0.2px 20.7px 3px 41.7px;
-  padding: 32px 16.5px 29.2px 33px;
+  height: 50vh;
+  overflow-y: auto;
   border-radius: 15px;
-  border: solid 3px #ff5155;
+  border: solid 2px #ff5155;
 }
 .user-input {
-  width: 422px;
-  height: 80px;
+  width: 10rem;
+  height: 4rem;
   opacity: 0.59;
   border-radius: 15px;
   box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
-  background-color: #ffffff;
+  background-color: #110e0e;
 }
 .game-word {
   border: none;
 }
 .score-heading {
-  font-size: 25px;
+  font-size: 2.5rem;
 }
 .game-score {
-  font-size: 35px;
+  font-size: 3.5rem;
   font-weight: 500;
 }
 .play-again {
   color: #ff5155;
-  font-size: 16px;
+  font-size: 1.8rem;
   cursor: pointer;
+    span {
+      margin-left: 0.6rem;
+    }
 }
 .high-score {
   font-size: 17px;
 }
 .stop-game {
   color: #ff5155;
-  font-size: 20px;
+  font-size: 2rem;
   cursor: pointer;
 }
 .footer {

@@ -40,7 +40,7 @@ export default function Login(){
         <div className="container">
             <img src={KeyboardLogo} alt="keyboard" className="gamepad-logo"/>
             <div className="header">
-                fast fingers
+                FAST FINGERS
             </div>
             <div className="row justify-content-center header1">
                 <span className="line1"></span>
@@ -48,7 +48,7 @@ export default function Login(){
                 <span className="line2"></span>
             </div>
             <form id="form" onSubmit={showGameScreen}>
-                <div className="row justify-content-center mt-3">
+                <div className="row justify-content-center mt-4">
                     <input type="text"
                             aria-label="Type Username" 
                             placeholder="TYPE YOUR NAME" 
@@ -59,17 +59,18 @@ export default function Login(){
                             required />                   
                 </div>
                 { showValidationError ? <div className="error-message">Please enter username</div> : ''}
-                <div className="row justify-content-center mb-3 mt-3">
+                <div className="row justify-content-center mb-5 mt-3">
                     <select aria-label="Select difficulty level in the game"
                         onChange={e => setDifficultylevel(e.target.value)}
-                        value={difficultylevel}>
+                        value={difficultylevel}
+                        className="round">
                         <option value="1">EASY</option>
                         <option value="1.5">MEDIUM</option>
                         <option value="2">HARD</option>
                     </select>    
                 </div>
                 <div className="start-button" onClick={showGameScreen}>
-                    <div className="row justify-content-center align-items-center">
+                    <div className="row justify-content-center align-items-center mr-2">
                         <img src={PlayLogo} alt="Play"/>
                         <span>START GAME</span>
                     </div>                    

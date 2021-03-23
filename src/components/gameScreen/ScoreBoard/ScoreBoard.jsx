@@ -13,7 +13,7 @@ export default function ScoreBoard({ gameScores }){
                         <p className="p-0 m-0 personal-best">PERSONAL BEST</p>
                         : ''
                 }
-                <p className="score-board-items mb-1">Game {gameNumber}  : {formatTime(score, "ss:mm")}</p>
+                <p className="score-board-items mb-1">Game {gameNumber}  : {formatTime(score, "mm:ss")}</p>
             </div>
         );
     });

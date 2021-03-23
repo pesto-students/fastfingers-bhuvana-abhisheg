@@ -61,7 +61,7 @@ export default function Header({ showWordZone, onScoreChange }) {
                 </div>
                 <div className="col-lg-3 score text-right">
                     {
-                        showWordZone ? <span>SCORE: {formatTime(score * 1000, "ss:mm")}</span> : ''
+                        showWordZone ? <span>SCORE: {formatTime(score * 1000, "mm:ss")}</span> : ''
                     }                    
                 </div>
             </div>

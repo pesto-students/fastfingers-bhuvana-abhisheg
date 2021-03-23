@@ -38,7 +38,7 @@ export default function GameScreen(){
     }
 
     return(
-        <div>
+        <div className="game-container">
             <Header showWordZone={showWordZone} onScoreChange={handleScoreChange}/>
             {
                 showWordZone ?
@@ -57,7 +57,7 @@ export default function GameScreen(){
                                 SCORE : GAME {gameNumber - 1}
                             </div>
                             <div className="text-white game-score text-center">
-                                { formatTime(score * 1000, "ss:mm") }
+                                { formatTime(score * 1000, "mm:ss") }
                             </div>
                             {
                                 Math.max(...gameScores.map(({ score }) => { return score })) < score ?
@@ -75,14 +75,14 @@ export default function GameScreen(){
             }
             {
                 showWordZone ?
-                    <div className="row px-5 footer">
+                    <div className="row footer">
                         <div className="stop-game" onClick={handleEndGame}>
                             <img src={StopLogo} alt="Stop Game"/>
                             <span>STOP GAME</span>
                         </div>
                     </div> :
                     <div className="row px-5 footer">
-                        <p className="stop-game">
+                        <p className="quit-game">
                             <span onClick={hanldeQuitGame}>QUIT</span>
                         </p>
                     </div>

@@ -77,7 +77,7 @@ export default function GameScreen(){
                 showWordZone ?
                     <div className="row footer">
                         <div className="stop-game" onClick={handleEndGame}>
-                            <img src={StopLogo} alt="Stop Game"/>
+                            <img src={StopLogo} alt="Stop Game" style={{verticalAlign:'bottom'}}/>
                             <span>STOP GAME</span>
                         </div>
                     </div> :

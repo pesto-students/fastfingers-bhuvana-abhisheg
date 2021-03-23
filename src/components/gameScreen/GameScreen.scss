@@ -2,7 +2,7 @@
   margin: 2rem;
 }
 .score-board {
-  height: 50vh;
+  height: 60vh;
   overflow-y: auto;
   border-radius: 15px;
   border: solid 2px #ff5155;
@@ -40,6 +40,7 @@
   color: #ff5155;
   font-size: 1.8rem;
   cursor: pointer;
+  font-family: Bubblegum Sans;
 }
 .quit-game {
   color: #ff5155;

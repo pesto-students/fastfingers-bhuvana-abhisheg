@@ -42,8 +42,8 @@ export default function Header({ showWordZone, onScoreChange }) {
              <div className="row mt-3">
                 <div className="col-lg-2">
                     <img src={UserLogo} alt="User" 
-                    style={{width: '60px',height: '23px'}}/>
-                    <span className="player-name text-uppercase">{username}</span>                   
+                    style={{width: '60px',height: '27px',verticalAlign:'bottom'}}/>
+                     <span className="player-name text-uppercase">{username}</span>                                      
                 </div>
                 <div className="col-lg-6">
                 </div>
@@ -54,7 +54,7 @@ export default function Header({ showWordZone, onScoreChange }) {
             <div className="row">
                 <div className="col-lg-3">
                     <img src={GamepadLogo} alt="Gamepad" 
-                    style={{width: '40px',height: '23px',marginRight: '5px',marginLeft: '11px'}}/>
+                    style={{width: '40px',height: '24px',marginRight: '10px',marginLeft: '11px'}}/>
                     <span className="player-name text-uppercase">LEVEL:{difficultyLevelText}</span>
                 </div>
                 <div className="col-lg-5">

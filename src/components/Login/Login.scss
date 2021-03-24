@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bubblegum+Sans&family=Quicksand&family=Monoton&family=Bungee+Shade&family=Changa+One&display=swap');
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gamepad-logo{
+  height: 100px;
+  margin-top: 50px;
+}
+.play-logo {
+   width: 100px;
+   height: 80px; 
+}
+.logo {
+    margin-top: 40px;
+}
+.header {
+  margin-top: 20px;
+  font-family: 'Bubblegum Sans';
+  font-size: 3rem;  
+  line-height: 1.2;
+  color: #ff5155;
+}
+.header1 {
+  font-family: 'Quicksand';
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.19;
+  color: #ff5155;
+}
+.line1 {
+  width: 80.6px;
+  height: 0;
+  margin: 10.8px 17.9px 0 0;
+  border: solid 1px #ff5155;
+}
+.line2 {
+    width: 80.6px;
+    height: 0;
+    margin: 10.8px 0 0 17.9px;
+    border: solid 1px #ff5155;
+}
+.username-input {
+  color: #032228;
+  background-color: #97a1a3;
+  font-size: 1rem;
+  padding: 0.5em 3.5em 0.5em 1em;
+  border-radius: 10px;
+  width: 22rem;
+  text-transform: uppercase;
+  outline: none;
+  font-family: 'Bubblegum Sans';
+}
+select{
+  width: 22rem;
+  padding: 0.5em 3.5em 0.5em 1em;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #97a1a3;
+  font-size: 1rem !important;
+  cursor: pointer;  
+  border: 1px solid white;
+  outline:none;
+  font-family: 'Bubblegum Sans' !important;
+
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+option {
+  background-color: #97a1a3;
+  color: #032228;
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-family: 'Bubblegum Sans';
+}
+select.round {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.round:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+  outline: 0;
+}
+.start-button {
+  color: #ff5155;
+  font-size: 2rem;
+  font-weight: 100;
+  cursor: pointer;
+  font-family: 'Bubblegum Sans'
+}
+.error-message {
+  color: #ff5155;
+  font-size: 1rem;
+  font-family: 'Bubblegum Sans';
+  margin: 0;
+}

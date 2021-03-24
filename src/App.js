@@ -1,10 +1,18 @@
 import React from 'react';
 import './App.css';
+import Login from './components/Login/Login';
+import Route from './components/Route';
+import GameScreen from './components/gameScreen/GameScreen';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Fast Fingers </h1>
+    <div>
+      <Route path="/">
+        <Login />
+      </Route>
+      <Route path="/game-screen">
+        <GameScreen />
+      </Route>
     </div>
   );
 }

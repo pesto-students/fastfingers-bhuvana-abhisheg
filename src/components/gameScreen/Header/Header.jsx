@@ -40,12 +40,12 @@ export default function Header({ showWordZone, onScoreChange }) {
     return(
         <div className="header-container">
              <div className="row mt-3">
-                <div className="col-lg-2">
+                <div className="col-lg-3">
                     <img src={UserLogo} alt="User" 
                     style={{width: '60px',height: '27px',verticalAlign:'bottom'}}/>
                      <span className="player-name text-uppercase">{username}</span>                                      
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-5">
                 </div>
                 <div className="col-lg-3 fast-fingers text-right">
                     <span>fast fingers</span>

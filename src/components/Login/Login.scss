@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bubblegum+Sans&family=Quicksand&family=Monoton&family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bubblegum+Sans&family=Quicksand&family=Monoton&family=Bungee+Shade&family=Changa+One&display=swap');
 .container {
   display: flex;
   flex-direction: column;
@@ -118,7 +118,7 @@ select.round:focus {
   font-family: 'Bubblegum Sans'
 }
 .error-message {
-  color: red;
+  color: #ff5155;
   font-size: 1rem;
   font-family: 'Bubblegum Sans';
   margin: 0;

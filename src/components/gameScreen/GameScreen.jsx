@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import Header from './Header/Header';
 import ScoreBoard from './ScoreBoard/ScoreBoard';
 import './GameScreen.scss';
@@ -19,7 +19,7 @@ export default function GameScreen(){
         }
         setGameScores([...gameScores, { gameNumber, score: (score * 1000) }]);
         setGameNumber(gameNumber + 1);
-        setShowWordZone(false);
+        setShowWordZone(false);           
     }
 
     const handlePlayAgain = () => {
@@ -68,7 +68,7 @@ export default function GameScreen(){
                                 <div className="row">
                                     <img src={PlayLogo} alt="Play Again"/>
                                     <span>PLAY AGAIN</span>
-                                </div>                            
+                                </div>                    
                             </div>
                         </div>
                     </div>

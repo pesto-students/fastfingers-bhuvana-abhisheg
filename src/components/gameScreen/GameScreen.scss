@@ -20,14 +20,17 @@
 }
 .score-heading {
   font-size: 2.5rem;
+  font-family: Bubblegum Sans;
 }
 .game-score {
-  font-size: 3.5rem;
-  font-weight: 500;
+  font-size: 3rem;
+  font-weight: 300;
+  font-family: Changa One;
 }
 .play-again {
   color: #ff5155;
   font-size: 1.8rem;
+  font-family: Bubblegum Sans;
   cursor: pointer;
     span {
       margin-left: 0.6rem;
@@ -46,6 +49,7 @@
   color: #ff5155;
   font-size: 2rem;
   cursor: pointer;
+  font-family: Bubblegum Sans;
 }
 .footer {
   position: fixed;
